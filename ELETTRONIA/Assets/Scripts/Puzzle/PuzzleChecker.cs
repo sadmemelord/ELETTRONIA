@@ -8,9 +8,9 @@ public class PuzzleChecker : MonoBehaviour
     public bool correct_switch;
     public bool switch_snap;
     public bool lamp_snap;
-    public bool debugged;
     public static bool solved;
-    
+    public Renderer LampRenderer;
+    public Material WireEmission;    
     RaycastHit hit;
     public Vector3 _center;
     public Vector3 _direction;
@@ -23,10 +23,10 @@ public class PuzzleChecker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        debugged = false;
+        LampRenderer.material.DisableKeyword("_EMISSION");
         _center = gameObject.transform.position;
        _direction = gameObject.transform.right;
-        _range = 50;
+        _range = 100;
         correct_res = GameObject.FindWithTag("res_small");
     }
 
@@ -45,11 +45,19 @@ public class PuzzleChecker : MonoBehaviour
         if (Physics.Raycast(ray, out hit, _range))
         {
             pointed_object = hit.transform.gameObject;
-            if ((pointed_object == correct_res) && (correct_power == true) && (correct_switch == true) && (switch_snap == true) && (lamp_snap == true) && (debugged == false) )
+            if ((pointed_object == correct_res) && (correct_power == true) && (correct_switch == true) && (switch_snap == true) && (lamp_snap == true) && solved == false)
             {
-                Debug.Log("CORRETTO");
-                debugged = true;
+              
+                LampRenderer.material.EnableKeyword("_EMISSION");
+                WireEmission.EnableKeyword("_EMISSION");
+                
                 solved = true;
+            }
+            if ((pointed_object != correct_res) || (correct_power == false) || (correct_switch == false) || (switch_snap == false) || (lamp_snap == false)) {
+
+                LampRenderer.material.DisableKeyword("_EMISSION");
+                WireEmission.DisableKeyword("_EMISSION");
+                solved = false;
             }
         }
     }

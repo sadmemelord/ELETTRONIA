@@ -5,8 +5,8 @@ using UnityEngine;
 public class Generator : Interactable
 {
     public bool Power = false;
-    public Color on_color;
-    public Color off_color;
+
+
     public Renderer _renderer;
 
 
@@ -16,12 +16,12 @@ public class Generator : Interactable
 
         if (Power == false)
         {
-            _renderer.material.color = off_color;
+            _renderer.material.DisableKeyword("_EMISSION");
         }
 
         else
         {
-            _renderer.material.color = on_color;
+            _renderer.material.EnableKeyword("_EMISSION");
         }
 
 
@@ -30,7 +30,7 @@ public class Generator : Interactable
     // Start is called before the first frame update
     void Start()
     {
-        _renderer.material.color = off_color;
+        _renderer.material.DisableKeyword("_EMISSION");
     }
 
     // Update is called once per frame

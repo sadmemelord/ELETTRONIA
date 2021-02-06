@@ -8,6 +8,7 @@ public class Switch : Interactable
     public Animator _switch_animator;
     public Renderer sphere_1;
     public Renderer sphere_2;
+    public Material SpheresMat;
     public bool switch_snapped;
     public AudioSource _switch_sound;
     public Color on_color;
@@ -44,23 +45,23 @@ public class Switch : Interactable
         switch_snapped = GameObject.FindGameObjectWithTag("switch").GetComponent<Switch_Snapper>().IsSnapped;
         if (switch_snapped == false)
         {
-            sphere_1.material.color = disconnected_color;
-            sphere_2.material.color = disconnected_color;
+            SpheresMat.DisableKeyword("_EMISSION");
+            SpheresMat.SetColor("_EMISSION", disconnected_color);
+
         }
 
         else
         {
             if (isClosed == true) 
             {
-
-                sphere_1.material.color = on_color;
-                sphere_2.material.color = on_color;
+               SpheresMat.EnableKeyword("_EMISSION");
+                SpheresMat.SetColor("_EmissionColor", on_color);
             }
 
             else
             {
-                sphere_1.material.color = off_color;
-                sphere_2.material.color = off_color;
+                SpheresMat.EnableKeyword("_EMISSION");
+                SpheresMat.SetColor("_EmissionColor", off_color);
 
             }
 
