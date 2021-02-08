@@ -71,6 +71,9 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\FPSInteractionManager.cs" />
     <Compile Include="Assets\Scripts\FirstPersonCharacterController.cs" />
     <Compile Include="Assets\Scripts\Grabbable.cs" />
