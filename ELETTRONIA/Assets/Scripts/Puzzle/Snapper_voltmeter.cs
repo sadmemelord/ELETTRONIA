@@ -2,41 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Snapper : MonoBehaviour
+public class Snapper_voltmeter : MonoBehaviour
 {
+    
     public Rigidbody _rigidbody;
     public AudioSource _snap_sound;
-    public static bool IsSnapped_static = false;
-    public bool IsSnapped = false;
+    public static bool IsSnapped_voltmeter_static = false;
+    public bool IsSnapped_voltmeter = false;
     GameObject snapparent; // the gameobject this transform will be snapped to
-  
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        IsSnapped = IsSnapped_static; //???
+        
     }
-
-
     void OnTriggerEnter(Collider col)
     {
 
         if (col.tag == "wireblock" || col.tag == "wireblockrot")
         {
 
-            IsSnapped_static = true;
+            IsSnapped_voltmeter_static = true;
             snapparent = col.gameObject; //the collision determines where the component is snapped          
             _rigidbody.isKinematic = false; //lo fa tornare soggetto alla gravità
         }
 
-        if (IsSnapped_static == true && PhysicsGrabbable.IsGrabbed == false)
+        if (IsSnapped_voltmeter_static == true && PhysicsGrabbable.IsGrabbed == false)
         {
             _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            
+
             if (snapparent.tag == "wireblock") //snap the component to the wire with the transform pointing outwards
             {
                 _snap_sound.Play(); //plays snap sound
@@ -53,6 +51,4 @@ public class Snapper : MonoBehaviour
         }
 
     }
-  
 }
-

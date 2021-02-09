@@ -83,13 +83,16 @@
     <Compile Include="Assets\Scripts\Opener.cs" />
     <Compile Include="Assets\Scripts\PhysicsGrabbable.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Generator.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\GeneratorTest.cs" />
     <Compile Include="Assets\Scripts\Puzzle\LampLighter.cs" />
     <Compile Include="Assets\Scripts\Puzzle\LampSnapper.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzle1.cs" />
     <Compile Include="Assets\Scripts\Puzzle\PuzzleChecker.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Snapper.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Snapper_voltmeter.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Switch.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Switch_Snapper.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\TestChecker.cs" />
     <Compile Include="Assets\Scripts\Warp.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Imports\UrbanNightSky\Readme.txt" />

@@ -13,6 +13,7 @@ TagManager:
   - switch
   - lampconnector
   - lamp
+  - generator_test
   layers:
   - Default
   - TransparentFX
