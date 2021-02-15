@@ -14,6 +14,10 @@ TagManager:
   - lampconnector
   - lamp
   - generator_test
+  - hub_floor
+  - lab_floor
+  - museum_floor
+  - puzzle_floor
   layers:
   - Default
   - TransparentFX

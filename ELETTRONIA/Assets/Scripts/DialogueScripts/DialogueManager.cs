@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence()
     {
         count++;
-        if (count == 3) //modify whenever the number of sentences changes
+        if (count == 4) //modify whenever the number of sentences changes
         {
             EndDialogue();
             return;
