@@ -10,6 +10,10 @@ public class Lab_Switch : Interactable
     public Animator LabCurrent;
     public Animator LabResistor;
     public Animator LabVoltage;
+    public ParticleSystem Sphere1;
+    public ParticleSystem Sphere2;
+    public ParticleSystem Sphere3;
+    public ParticleSystem Sphere4;
     private int State;
 
     public override void Interact(GameObject caller)
@@ -20,6 +24,10 @@ public class Lab_Switch : Interactable
             LabSwitch.SetInteger("Lab_Switch", 1);
             LabVoltage.SetInteger("Lab_Voltage", 1);
             LabCurrent.SetInteger("Lab_Current", 1);
+            Sphere1.Play();
+            Sphere2.Play();
+            Sphere3.Play();
+            Sphere4.Play();
 
             State = 1;
         }
@@ -55,6 +63,10 @@ public class Lab_Switch : Interactable
             LabResistor.SetInteger("Lab_Res", 3);
             LabVoltage.SetInteger("Lab_Voltage", 2);
             LabCurrent.SetInteger("Lab_Current", 4);
+            Sphere1.Stop();
+            Sphere2.Stop();
+            Sphere3.Stop();
+            Sphere4.Stop();
 
             State = 0;
 
@@ -63,6 +75,10 @@ public class Lab_Switch : Interactable
        else
         {
             State = 0;
+            Sphere1.Stop();
+            Sphere2.Stop();
+            Sphere3.Stop();
+            Sphere4.Stop();
         }
         
     }
@@ -71,7 +87,11 @@ public class Lab_Switch : Interactable
     void Start()
     {
         State = 0;
-        
+        Sphere1.Stop();
+        Sphere2.Stop();
+        Sphere3.Stop();
+        Sphere4.Stop();
+
     }
 
     // Update is called once per frame
