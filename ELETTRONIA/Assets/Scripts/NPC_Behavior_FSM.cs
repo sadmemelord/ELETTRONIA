@@ -6,6 +6,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
 {
     //variables and objs
     public GameObject ThePlayer;
+    public GameObject Pointed_target;
     public Animator NPCAnimator;
     private float TargetDistance;
     public float AllowedDistance;
@@ -53,7 +54,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        current_substate = 0;
+        current_substate = SubState_type.Current_mus;
         _range = 100;
     }
 
@@ -120,6 +121,33 @@ public class NPC_Behavior_FSM : MonoBehaviour
                 {
                     //Debug.Log("MUSEUM");
                     //check for substate
+                    switch (current_substate)
+                    {
+                        case SubState_type.Current_mus:
+                            Debug.Log("in museum");
+                            //npc go to script
+                            Pointed_target = GameObject.Find("Empty_Mus_Current");
+                            transform.LookAt(Pointed_target.transform);
+                            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
+                            {
+                                TargetDistance = Shot.distance;
+                                if (TargetDistance >= AllowedDistance)
+                                {
+                                    NPCAnimator.SetBool("Idle", false);
+                                    Speed = 0.065f;
+
+                                    //animation  for follow
+                                    transform.position = Vector3.MoveTowards(transform.position, Pointed_target.transform.position, Speed);
+                                }
+                                else
+                                {
+                                    Speed = 0f;
+                                    transform.LookAt(ThePlayer.transform);
+                                    NPCAnimator.SetBool("Idle", true);
+                                }
+                            }
+                            break;
+                    }
                     break;
                 }
             case State_type.LAB:
@@ -130,8 +158,40 @@ public class NPC_Behavior_FSM : MonoBehaviour
                 }
             case State_type.PUZZLE:
                 {
-                    //Debug.Log("PUZZLE");
+                    Debug.Log("PUZZLE");
                     //check for substate
+
+                    switch (current_substate)
+                    {
+                        case SubState_type.Start_puz:
+                            Debug.Log("puzzle start");
+                            //npc go to script
+                            Pointed_target = GameObject.Find("Empty_Puzzle_Start");
+                            transform.LookAt(Pointed_target.transform);
+                            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
+                            {
+                                TargetDistance = Shot.distance;
+                                if (TargetDistance >= AllowedDistance)
+                                {
+                                    NPCAnimator.SetBool("Idle", false);
+                                    Speed = 0.065f;
+
+                                    //animation  for follow
+                                    transform.position = Vector3.MoveTowards(transform.position, Pointed_target.transform.position, Speed);
+                                }
+                                else
+                                {
+                                    Speed = 0f;
+                                    transform.LookAt(ThePlayer.transform);
+                                    NPCAnimator.SetBool("Idle", true);
+
+                                }
+                            }
+                            break;
+
+                        
+                           
+                    }
                     break;
                 }
         }

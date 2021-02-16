@@ -39,10 +39,10 @@ public class PuzzleChecker : MonoBehaviour
         switch_snap = GameObject.FindWithTag("switch").GetComponent<Switch_Snapper>().IsSnapped;
         lamp_snap = GameObject.FindWithTag("lamp").GetComponent<LampSnapper>().IsSnapped;
 
-        Ray ray = new Ray(_center, _direction);
+        Ray PuzzleCheckerRay = new Ray(_center, _direction);
         Debug.DrawRay(_center, _direction, Color.green);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, _range))
+        if (Physics.Raycast(PuzzleCheckerRay, out hit, _range))
         {
             pointed_object = hit.transform.gameObject;
             if ((pointed_object == correct_res) && (correct_power == true) && (correct_switch == true) && (switch_snap == true) && (lamp_snap == true) && solved == false)
