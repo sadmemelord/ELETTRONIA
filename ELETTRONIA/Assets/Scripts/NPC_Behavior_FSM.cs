@@ -13,6 +13,8 @@ public class NPC_Behavior_FSM : MonoBehaviour
     public GameObject TheNPC;
     private float Speed;
     public RaycastHit Shot;
+    public static bool end_dialogue;
+    private GameObject Target_Hub;
 
     GameObject pointed_object;
     RaycastHit hit;
@@ -46,16 +48,19 @@ public class NPC_Behavior_FSM : MonoBehaviour
         Resistor_mus, //4
        // Inventors_mus, //5
        Resistor_lab, //6
-       Switch_lab //7
+       Switch_lab, //7
+       Lamp_lab //8
     }
-    State_type current_state;
-    SubState_type current_substate;
+    public static State_type current_state;
+    public static SubState_type current_substate;
 
     // Start is called before the first frame update
     void Start()
     {
         current_substate = SubState_type.Current_mus;
+        Target_Hub = GameObject.Find("Target_Hub");
         _range = 100;
+        end_dialogue = false;
     }
 
     // Update is called once per frame
@@ -119,6 +124,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                 }
             case State_type.MUSEUM:
                 {
+                    
                     //Debug.Log("MUSEUM");
                     //check for substate
                     switch (current_substate)
@@ -126,7 +132,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         case SubState_type.Current_mus:
                             Debug.Log("in museum");
                             //npc go to script
-                            Pointed_target = GameObject.Find("Empty_Mus_Current");
+                            Pointed_target = GameObject.Find("Target_Mus_Current");
                             transform.LookAt(Pointed_target.transform);
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                             {
@@ -144,16 +150,138 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                     Speed = 0f;
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
+                                    if (end_dialogue == true)
+                                    {
+                                        current_substate = SubState_type.Resistor_mus;
+                                        end_dialogue = false;
+                                    }
                                 }
                             }
                             break;
+
+                        case SubState_type.Resistor_mus:
+                            //npc go to script
+                            Pointed_target = GameObject.Find("Target_Mus_Res");
+                            transform.LookAt(Pointed_target.transform);
+                            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
+                            {
+                                TargetDistance = Shot.distance;
+                                if (TargetDistance >= AllowedDistance)
+                                {
+                                    NPCAnimator.SetBool("Idle", false);
+                                    Speed = 0.065f;
+
+                                    //animation  for follow
+                                    transform.position = Vector3.MoveTowards(transform.position, Pointed_target.transform.position, Speed);
+                                }
+                                else
+                                {
+                                    Speed = 0f;
+                                    transform.LookAt(ThePlayer.transform);
+                                    NPCAnimator.SetBool("Idle", true);
+                                    if (end_dialogue == true)
+                                    {
+                                        current_substate = SubState_type.Resistor_lab;
+                                        //needs to teleport to LAB or to HUB
+                                        gameObject.transform.position = Target_Hub.transform.position;
+                                    }
+                                }
+                            }
+                            break;
+
                     }
                     break;
                 }
             case State_type.LAB:
                 {
-                    //Debug.Log("LAB");
+                    Debug.Log("in LAB");
                     //check for substate
+                    switch (current_substate)
+                        {
+                        case SubState_type.Resistor_lab: //goes to resistor table and waits in idle for end_dialogue
+                            Pointed_target = GameObject.Find("Target_Lab_Res");
+                            transform.LookAt(Pointed_target.transform);
+                            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
+                            {
+                                TargetDistance = Shot.distance;
+                                if (TargetDistance >= AllowedDistance)
+                                {
+                                    NPCAnimator.SetBool("Idle", false);
+                                    Speed = 0.065f;
+
+                                    //animation  for follow
+                                    transform.position = Vector3.MoveTowards(transform.position, Pointed_target.transform.position, Speed);
+                                }
+                                else
+                                {
+                                    Speed = 0f;
+                                    transform.LookAt(ThePlayer.transform);
+                                    NPCAnimator.SetBool("Idle", true);
+                                    if (end_dialogue == true)
+                                    {
+                                        current_substate = SubState_type.Switch_lab;
+                                        end_dialogue = false;
+                                    }
+                                }
+                            }
+                            break;
+
+                        case SubState_type.Switch_lab: //goes to switch table and waits in idle for end_dialogue
+                            Pointed_target = GameObject.Find("Target_Lab_Switch");
+                            transform.LookAt(Pointed_target.transform);
+                            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
+                            {
+                                TargetDistance = Shot.distance;
+                                if (TargetDistance >= AllowedDistance)
+                                {
+                                    NPCAnimator.SetBool("Idle", false);
+                                    Speed = 0.065f;
+
+                                    //animation  for follow
+                                    transform.position = Vector3.MoveTowards(transform.position, Pointed_target.transform.position, Speed);
+                                }
+                                else
+                                {
+                                    Speed = 0f;
+                                    transform.LookAt(ThePlayer.transform);
+                                    NPCAnimator.SetBool("Idle", true);
+                                    if (end_dialogue == true)
+                                    {
+                                        current_substate = SubState_type.Lamp_lab;
+                                        end_dialogue = false;
+                                    }
+                                }
+                            }
+                            break;
+
+                        case SubState_type.Lamp_lab:
+                            Pointed_target = GameObject.Find("Target_Lab_Lamp");
+                            transform.LookAt(Pointed_target.transform);
+                            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
+                            {
+                                TargetDistance = Shot.distance;
+                                if (TargetDistance >= AllowedDistance)
+                                {
+                                    NPCAnimator.SetBool("Idle", false);
+                                    Speed = 0.065f;
+
+                                    //animation  for follow
+                                    transform.position = Vector3.MoveTowards(transform.position, Pointed_target.transform.position, Speed);
+                                }
+                                else
+                                {
+                                    Speed = 0f;
+                                    transform.LookAt(ThePlayer.transform);
+                                    NPCAnimator.SetBool("Idle", true);
+                                    if (end_dialogue == true)
+                                    {
+                                        current_substate = SubState_type.Start_puz;
+                                        end_dialogue = false;
+                                    }
+                                }
+                            }
+                            break;
+                    }
                     break;
                 }
             case State_type.PUZZLE:
@@ -166,7 +294,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         case SubState_type.Start_puz:
                             Debug.Log("puzzle start");
                             //npc go to script
-                            Pointed_target = GameObject.Find("Empty_Puzzle_Start");
+                            Pointed_target = GameObject.Find("Target_Puzzle_Start");
                             transform.LookAt(Pointed_target.transform);
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                             {
@@ -184,7 +312,10 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                     Speed = 0f;
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
-
+                                    if(PuzzleChecker.solved == true)
+                                    {
+                                        current_substate = SubState_type.Solved_puz;
+                                    }
                                 }
                             }
                             break;

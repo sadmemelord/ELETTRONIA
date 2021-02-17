@@ -75,6 +75,9 @@
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerHUB.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerMUS_1.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerMUS_Panel_1.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerMUS_Panel_2.cs" />
     <Compile Include="Assets\Scripts\FPSInteractionManager.cs" />
     <Compile Include="Assets\Scripts\FirstPersonCharacterController.cs" />
     <Compile Include="Assets\Scripts\Grabbable.cs" />

@@ -10,18 +10,26 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     public Image textBox;
     private int count = 0;
+    private bool to_start;
+    private string _name;
 
     void Start()
     {
-        sentences = new Queue<string>();
+        to_start = true;
         dialogueText.enabled = false;
         textBox.enabled = false;
     }
     public void StartDialogue(Dialogue dialogue)
     {
+        if(to_start == true)
+        {
+            sentences = new Queue<string>();
+            to_start = false;
+        }
+        
         dialogueText.enabled = true;
         textBox.enabled = true;
-        nameText.text = dialogue.name;
+        _name = dialogue.name;
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
@@ -40,15 +48,18 @@ public class DialogueManager : MonoBehaviour
         {
             string current_sentence = sentences.Dequeue();
             dialogueText.text = current_sentence;
+            nameText.text = _name;
         }
     }
     void EndDialogue()
     {
         Debug.Log("End");
+        to_start = true;
         dialogueText.enabled = false;
         nameText.enabled = false;
         textBox.enabled = false;
         count = 0;
+        NPC_Behavior_FSM.end_dialogue = true;
     }
     // Update is called once per frame
     
