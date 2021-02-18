@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Imports\LowPolyLight(Lite)\Effect\Bloom.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -75,9 +77,16 @@
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerHUB.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerLAB_1.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerLAB_2.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerLAB_3.cs" />
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerMUS_1.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerMUS_2.cs" />
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerMUS_Panel_1.cs" />
     <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerMUS_Panel_2.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerPUZSolved.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerPUZ_Help.cs" />
+    <Compile Include="Assets\Scripts\DialogueScripts\DialogueTriggerPUZ_Start.cs" />
     <Compile Include="Assets\Scripts\FPSInteractionManager.cs" />
     <Compile Include="Assets\Scripts\FirstPersonCharacterController.cs" />
     <Compile Include="Assets\Scripts\Grabbable.cs" />
@@ -108,6 +117,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Imports\LowPolyLight(Lite)\Effect\Bloom.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -662,37 +672,39 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{D7E3CE29-8A38-31EC-6E5B-62A785BFDDF3}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{007B8B71-6C37-DFB3-415C-90A565B5ABB4}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{6C882412-8E93-419E-A7E0-2AC30087D5D1}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

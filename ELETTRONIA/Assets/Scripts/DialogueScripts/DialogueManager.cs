@@ -39,7 +39,7 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence()
     {
         count++;
-        if (count == 4) //modify whenever the number of sentences changes
+        if (count == 2) //modify whenever the number of sentences changes
         {
             EndDialogue();
             return;
@@ -59,7 +59,11 @@ public class DialogueManager : MonoBehaviour
         nameText.enabled = false;
         textBox.enabled = false;
         count = 0;
-        NPC_Behavior_FSM.end_dialogue = true;
+        if(nameText.text == "Kirchbot:")
+        {
+            NPC_Behavior_FSM.end_dialogue = true;
+        }
+        
     }
     // Update is called once per frame
     
