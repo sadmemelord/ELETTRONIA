@@ -48,15 +48,15 @@ public class PuzzleChecker : MonoBehaviour
             if ((pointed_object == correct_res) && (correct_power == true) && (correct_switch == true) && (switch_snap == true) && (lamp_snap == true) && solved == false)
             {
               
-                LampRenderer.material.EnableKeyword("_EMISSION");
-                WireEmission.EnableKeyword("_EMISSION");
+               // LampRenderer.material.EnableKeyword("_EMISSION");
+               // WireEmission.EnableKeyword("_EMISSION");
                 
                 solved = true;
             }
-            if ((pointed_object != correct_res) || (correct_power == false) || (correct_switch == false) || (switch_snap == false) || (lamp_snap == false)) {
+            else if ((pointed_object != correct_res) || (correct_power == false) || (correct_switch == false) || (switch_snap == false) || (lamp_snap == false)) {
 
-                LampRenderer.material.DisableKeyword("_EMISSION");
-                WireEmission.DisableKeyword("_EMISSION");
+                //LampRenderer.material.DisableKeyword("_EMISSION");
+                //WireEmission.DisableKeyword("_EMISSION");
                 solved = false;
             }
         }

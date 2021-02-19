@@ -2303,7 +2303,7 @@ GameObject:
   - component: {fileID: 124931183}
   m_Layer: 0
   m_Name: Lamp (1)
-  m_TagString: lamp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -41426,6 +41426,7 @@ GameObject:
   - component: {fileID: 497514132475546887}
   - component: {fileID: 542661880}
   - component: {fileID: 542661879}
+  - component: {fileID: 6920570143447722}
   m_Layer: 0
   m_Name: Connector
   m_TagString: wireblock
@@ -41433,6 +41434,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
   m_IsActive: 1
+--- !u!114 &6920570143447722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920570143447721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be3350bbff3a4c4ea0e88609a712522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wires: {fileID: 2100000, guid: e52b9b4ef4c65a04bbb89fa927f0b921, type: 2}
+  Lamp: {fileID: 206569286}
 --- !u!33 &9215452425741192
 MeshFilter:
   m_ObjectHideFlags: 0

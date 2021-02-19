@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\NpcFollow.cs" />
     <Compile Include="Assets\Scripts\Opener.cs" />
     <Compile Include="Assets\Scripts\PhysicsGrabbable.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Circuit_Lighter.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Generator.cs" />
     <Compile Include="Assets\Scripts\Puzzle\GeneratorTest.cs" />
     <Compile Include="Assets\Scripts\Puzzle\LampLighter.cs" />
@@ -672,39 +673,37 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Luca Donalisio/Desktop/PoliTo/ProgettoVR/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/Alberto/Desktop/ELETTRONIA/ELETTRONIA/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{D7E3CE29-8A38-31EC-6E5B-62A785BFDDF3}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{007B8B71-6C37-DFB3-415C-90A565B5ABB4}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{6C882412-8E93-419E-A7E0-2AC30087D5D1}</Project>
-      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
