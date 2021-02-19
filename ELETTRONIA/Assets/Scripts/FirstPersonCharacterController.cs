@@ -25,6 +25,7 @@ public class FirstPersonCharacterController : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
 
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 

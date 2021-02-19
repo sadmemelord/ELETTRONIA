@@ -1607,7 +1607,7 @@ RectTransform:
   m_GameObject: {fileID: 97566090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 258.2}
-  m_LocalScale: {x: 8, y: 2.5, z: 1}
+  m_LocalScale: {x: 10.874751, y: 3.39836, z: 1.3593439}
   m_Children: []
   m_Father: {fileID: 33516201}
   m_RootOrder: 1
@@ -10988,7 +10988,7 @@ MonoBehaviour:
   dialogue_panel_2:
     name: 'Aperto vs Chiuso:'
     sentences:
-    - "La corrente pu\xF2 circolare solo lungo un percorso chiuso, quindi attento
+    - "La corrente pu\xF2 circolare solo lungo un percorso CHIUSO, quindi attento
       ai buchi!"
 --- !u!82 &528755454
 AudioSource:
@@ -15098,7 +15098,7 @@ MonoBehaviour:
   dialogue_panel_1:
     name: 'Generatori:'
     sentences:
-    - "Perch\xE9 le cariche si mettano in moto serve fornire tensione ad una resistenza,
+    - "Perch\xE9 le cariche si mettano in moto serve fornire TENSIONE ad una RESISTENZA,
       questo lavoro \xE8 svolto dai generatori."
 --- !u!1 &726826357
 GameObject:
@@ -15802,7 +15802,11 @@ MonoBehaviour:
   dialogue_puz_0:
     name: 'Kirchbot:'
     sentences:
-    - 
+    - "Cosa ne dici di una semplice sfida? L\u2019obiettivo \xE8 quello di chiudere
+      il circuito con una resistenza e un interruttore e accendere la lampadina.
+      Attenzione per\xF2 la lampadina si accender\xE0 solo utilizzando la resistenza
+      pi\xF9 piccola. Per complicare le cose le resistenze hanno tutte lo stesso
+      colore, per trovare quella giusta puoi usare il circuito di test qui si fronte"
   _audio: {fileID: 748315305}
 --- !u!65 &748315307
 BoxCollider:
@@ -29382,8 +29386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.3, y: -155}
-  m_SizeDelta: {x: 600, y: 120}
+  m_AnchoredPosition: {x: -20.9, y: -172.2}
+  m_SizeDelta: {x: 747.9374, y: 194.84134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531501444
 MonoBehaviour:
@@ -29405,14 +29409,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 92b61d8933b2fb1479f9f3bcc13dd702, type: 3}
     m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 50
-    m_Alignment: 0
-    m_AlignByGeometry: 1
+    m_Alignment: 3
+    m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -37306,8 +37310,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -278, y: -72}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -350, y: -32}
+  m_SizeDelta: {x: 181.67105, y: 29.9842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922338197
 MonoBehaviour:
@@ -37329,10 +37333,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 92b61d8933b2fb1479f9f3bcc13dd702, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0

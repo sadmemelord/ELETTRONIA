@@ -202,7 +202,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                 }
             case State_type.LAB:
                 {
-                    Debug.Log("in LAB");
+                    //Debug.Log("in LAB");
                     //check for substate
                     kirchbot_bulb.material.DisableKeyword("_EMISSION");
                     switch (current_substate)
@@ -301,7 +301,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                 }
             case State_type.PUZZLE:
                 {
-                    Debug.Log("PUZZLE");
+                    //Debug.Log("PUZZLE");
                     //check for substate
 
                     switch (current_substate)
