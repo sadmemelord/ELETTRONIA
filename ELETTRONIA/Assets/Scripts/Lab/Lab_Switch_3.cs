@@ -6,7 +6,7 @@ public class Lab_Switch_3 : Interactable
 {
     private int State;
     public Animator LabSwitch_SW;
-    public Renderer Lamp;
+    public GameObject Lamp;
     public ParticleSystem Sphere1;
     public ParticleSystem Sphere2;
     public ParticleSystem Sphere3;
@@ -16,7 +16,7 @@ public class Lab_Switch_3 : Interactable
         if (State == 0)
         {
             LabSwitch_SW.SetInteger("State", 1);
-            Lamp.material.EnableKeyword("_EMISSION");
+            Lamp.gameObject.SetActive(true);
 
             Sphere1.Play();
             Sphere2.Play();
@@ -29,7 +29,7 @@ public class Lab_Switch_3 : Interactable
         else if (State == 1)
         {
             LabSwitch_SW.SetInteger("State", 2);
-            Lamp.material.DisableKeyword("_EMISSION");
+            Lamp.gameObject.SetActive(false);
 
             State = 0;
             Sphere1.Stop();

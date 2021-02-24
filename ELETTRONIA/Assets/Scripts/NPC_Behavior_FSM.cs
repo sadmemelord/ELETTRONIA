@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPC_Behavior_FSM : MonoBehaviour
 {
     //variables and objs
+    public Animator TextToHub;
+    public ParticleSystem Teleport_Museum;
     public GameObject ThePlayer;
     public GameObject Pointed_target;
     public Animator NPCAnimator;
@@ -101,6 +104,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
             case State_type.HUB:
                 {
                     //npc follow script
+                    
                     transform.LookAt(ThePlayer.transform);
                     kirchbot_bulb.material.DisableKeyword("_EMISSION");
                     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
@@ -108,6 +112,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         TargetDistance = Shot.distance;
                         if (TargetDistance >= AllowedDistance)
                         {
+                           
                             NPCAnimator.SetBool("Idle", false);
                             Speed = 0.07f;
 
@@ -143,6 +148,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 TargetDistance = Shot.distance;
                                 if (TargetDistance >= AllowedDistance)
                                 {
+                                   
                                     NPCAnimator.SetBool("Idle", false);
                                     Speed = 0.07f;
 
@@ -190,6 +196,9 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                     {
                                         current_substate = SubState_type.Resistor_lab;
                                         //needs to teleport to LAB or to HUB
+
+                                        Teleport_Museum.Play();
+                                        TextToHub.SetBool("Return_Text", true);
                                         gameObject.transform.position = Target_Hub.transform.position;
                                         end_dialogue = false;
                                     }
@@ -205,6 +214,8 @@ public class NPC_Behavior_FSM : MonoBehaviour
                     //Debug.Log("in LAB");
                     //check for substate
                     kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                    TextToHub.SetBool("Return_Text", false);
+
                     switch (current_substate)
                         {
                         case SubState_type.Resistor_lab: //goes to resistor table and waits in idle for end_dialogue
@@ -291,6 +302,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                     {
                                         current_substate = SubState_type.Start_puz;
                                         end_dialogue = false;
+                                        TextToHub.SetBool("Return_Text", true);
                                         gameObject.transform.position = Target_Hub.transform.position;
                                     }
                                 }
@@ -395,6 +407,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                     {
                                         current_substate = SubState_type.Current_mus;
                                         end_dialogue = false;
+                                        TextToHub.SetBool("Return_Text", true);
                                         gameObject.transform.position = Target_Hub.transform.position;
                                     }
                                 }

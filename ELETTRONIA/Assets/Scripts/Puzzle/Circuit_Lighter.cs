@@ -6,6 +6,7 @@ public class Circuit_Lighter : MonoBehaviour
 
    
 {
+    public Animator Circuit_Light;
    public Material Wires;
    public Renderer Lamp;
 
@@ -13,7 +14,7 @@ public class Circuit_Lighter : MonoBehaviour
     void Start()
     {
         Wires.DisableKeyword("_EMISSION");
-        Lamp.material.DisableKeyword("_EMISSION");
+        //Lamp.material.DisableKeyword("_EMISSION");
     }
 
     // Update is called once per frame
@@ -22,7 +23,9 @@ public class Circuit_Lighter : MonoBehaviour
         if (PuzzleChecker.solved == true)
         {
             Wires.EnableKeyword("_EMISSION");
-            Lamp.material.EnableKeyword("_EMISSION");
+            Circuit_Light.SetBool("Circuit_Current", true);
+            //Wires.EnableKeyword("_EMISSION");
+            //Lamp.material.EnableKeyword("_EMISSION");
         }
         
 

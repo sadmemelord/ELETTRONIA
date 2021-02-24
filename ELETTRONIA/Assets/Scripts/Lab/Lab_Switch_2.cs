@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lab_Switch_2 : Interactable
 {
     private int State;
+    public GameObject CeilingLight;
     public Animator LabSwitch_SW;
     public Animator Switch;
     public Animator Current;
@@ -18,7 +19,7 @@ public class Lab_Switch_2 : Interactable
         {
             LabSwitch_SW.SetInteger("State", 1);
             Current.SetInteger("Current_State", 1);
-
+            CeilingLight.SetActive(true);
             Sphere1.Play();
             Sphere2.Play();
             Sphere3.Play();
@@ -45,6 +46,7 @@ public class Lab_Switch_2 : Interactable
             Sphere2.Stop();
             Sphere3.Stop();
             Sphere4.Stop();
+            CeilingLight.SetActive(false);
         }
 
         else

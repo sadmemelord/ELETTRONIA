@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
         }
         
         dialogueText.enabled = true;
+        nameText.enabled = true;
         textBox.enabled = true;
         _name = dialogue.name;
         foreach (string sentence in dialogue.sentences)

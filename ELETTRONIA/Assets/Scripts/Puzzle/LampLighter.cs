@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LampLighter : MonoBehaviour
 {
-    public Renderer _renderer;
+    public GameObject Lamp;
     public Color on_color;
     public Color off_color;
     // Start is called before the first frame update
@@ -19,11 +19,11 @@ public class LampLighter : MonoBehaviour
         if(PuzzleChecker.solved == true)
         {
             //cambio materiale
-            _renderer.material.color = on_color;
+            Lamp.SetActive(true);
         }
         else
         {
-            _renderer.material.color = off_color;
+            Lamp.SetActive(false);
         }
     }
 }

@@ -10,6 +10,8 @@ public class Lab_Switch : Interactable
     public Animator LabCurrent;
     public Animator LabResistor;
     public Animator LabVoltage;
+    public GameObject Light;
+    public GameObject Electrons_Light;
     public ParticleSystem Sphere1;
     public ParticleSystem Sphere2;
     public ParticleSystem Sphere3;
@@ -24,6 +26,8 @@ public class Lab_Switch : Interactable
             LabSwitch.SetInteger("Lab_Switch", 1);
             LabVoltage.SetInteger("Lab_Voltage", 1);
             LabCurrent.SetInteger("Lab_Current", 1);
+            Light.SetActive(true);
+            Electrons_Light.SetActive(true);
             Sphere1.Play();
             Sphere2.Play();
             Sphere3.Play();
@@ -40,6 +44,7 @@ public class Lab_Switch : Interactable
             LabResistor.SetInteger("Lab_Res", 1);
             //LabVoltage.SetInteger("Lab_Voltage", 2);
             LabCurrent.SetInteger("Lab_Current", 2);
+
 
             State = 2;
         }
@@ -63,6 +68,8 @@ public class Lab_Switch : Interactable
             LabResistor.SetInteger("Lab_Res", 3);
             LabVoltage.SetInteger("Lab_Voltage", 2);
             LabCurrent.SetInteger("Lab_Current", 4);
+            Light.SetActive(false);
+            Electrons_Light.SetActive(false);
             Sphere1.Stop();
             Sphere2.Stop();
             Sphere3.Stop();
@@ -75,6 +82,8 @@ public class Lab_Switch : Interactable
        else
         {
             State = 0;
+            Light.SetActive(false);
+            Electrons_Light.SetActive(false);
             Sphere1.Stop();
             Sphere2.Stop();
             Sphere3.Stop();
