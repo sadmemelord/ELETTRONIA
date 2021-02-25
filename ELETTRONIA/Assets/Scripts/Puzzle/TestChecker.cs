@@ -14,6 +14,7 @@ public class TestChecker : MonoBehaviour
     GameObject res_medium;
     GameObject res_small;
     GameObject pointed_object;
+    public Material Wires;
     public Renderer _renderer_center;
     public Renderer _renderer_ring1;
     public Renderer _renderer_ring2;
@@ -51,21 +52,34 @@ public class TestChecker : MonoBehaviour
                         _renderer_ring2.material.EnableKeyword("_EMISSION");
                         _renderer_center.material.SetColor("_EmissionColor", color_big);
                         _renderer_center.material.EnableKeyword("_EMISSION");
+                        Wires.EnableKeyword("_EMISSION");
                     }
-                if (pointed_object == res_medium && _power_test == true)
+               else if (pointed_object == res_medium && _power_test == true)
                     {
                         _renderer_ring1.material.EnableKeyword("_EMISSION");
                         _renderer_ring2.material.EnableKeyword("_EMISSION");
                         _renderer_center.material.SetColor("_EmissionColor", color_medium);
                         _renderer_center.material.EnableKeyword("_EMISSION");
+                        Wires.EnableKeyword("_EMISSION");
             }
-                if (pointed_object == res_small && _power_test == true)
+              else  if (pointed_object == res_small && _power_test == true)
                     {
                         _renderer_ring1.material.EnableKeyword("_EMISSION");
                         _renderer_ring2.material.EnableKeyword("_EMISSION");
                         _renderer_center.material.SetColor("_EmissionColor", color_small);
                         _renderer_center.material.EnableKeyword("_EMISSION");
+                         Wires.EnableKeyword("_EMISSION");
             }
+
+              else
+            {
+                _renderer_ring1.material.DisableKeyword("_EMISSION");
+                _renderer_ring2.material.DisableKeyword("_EMISSION");
+                _renderer_center.material.DisableKeyword("_EMISSION");
+                Wires.DisableKeyword("_EMISSION");
+
+            }
+
         }
 
         }

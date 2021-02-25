@@ -5,6 +5,7 @@ using UnityEngine;
 public class LampLighter : MonoBehaviour
 {
     public GameObject Lamp;
+    public Renderer Bulb;
     public Color on_color;
     public Color off_color;
     // Start is called before the first frame update
@@ -20,10 +21,13 @@ public class LampLighter : MonoBehaviour
         {
             //cambio materiale
             Lamp.SetActive(true);
+            Bulb.material.EnableKeyword("_EMISSION");
+         
         }
         else
         {
             Lamp.SetActive(false);
+            Bulb.material.DisableKeyword("_EMISSION");
         }
     }
 }

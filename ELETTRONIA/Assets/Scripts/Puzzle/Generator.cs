@@ -5,6 +5,7 @@ using UnityEngine;
 public class Generator : Interactable
 {
     public bool Power = false;
+    public AudioSource PowerON;
 
 
     public Renderer _renderer;
@@ -22,6 +23,7 @@ public class Generator : Interactable
         else
         {
             _renderer.material.EnableKeyword("_EMISSION");
+            PowerON.Play();
         }
 
 

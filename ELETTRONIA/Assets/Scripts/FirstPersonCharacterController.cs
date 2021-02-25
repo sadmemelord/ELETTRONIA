@@ -14,6 +14,7 @@ public class FirstPersonCharacterController : MonoBehaviour
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _jumpHeight = 3f;
 
+    public GameObject Hub_Empty, Mus_Empty1, Mus_Empty2, Lab_Empty1, Lab_Empty2, Lab_Empty3, Circuit_Empty1, Circuit_Empty2, Circuit_Empty3;
 
     private CharacterController _characterController;
     private float cameraXRotation = 0f;
@@ -26,6 +27,17 @@ public class FirstPersonCharacterController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Hub_Empty.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Mus_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Mus_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Lab_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Lab_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Lab_Empty3.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Circuit_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Circuit_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Circuit_Empty3.GetComponent<Collider>(), true);
+
+
     }
 
 

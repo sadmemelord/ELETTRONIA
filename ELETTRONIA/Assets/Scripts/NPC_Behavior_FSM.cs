@@ -11,6 +11,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
     public GameObject ThePlayer;
     public GameObject Pointed_target;
     public Animator NPCAnimator;
+    public GameObject Light;
     private float TargetDistance;
     public float AllowedDistance;
     public GameObject TheNPC;
@@ -107,6 +108,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                     
                     transform.LookAt(ThePlayer.transform);
                     kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                    Light.SetActive(false);
                     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                     {
                         TargetDistance = Shot.distance;
@@ -123,6 +125,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         {
                             Speed = 0f;
                             kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                            Light.SetActive(true);
                             NPCAnimator.SetBool("Idle", true);
 
                         }
@@ -141,6 +144,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                             Debug.Log("in museum");
                             //npc go to script
                             kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                            Light.SetActive(false);
                             Pointed_target = GameObject.Find("Target_Mus_Current");
                             transform.LookAt(Pointed_target.transform);
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
@@ -159,6 +163,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 {
                                     Speed = 0f;
                                     kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                                    Light.SetActive(true);
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
                                     if (end_dialogue == true)
@@ -173,6 +178,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         case SubState_type.Resistor_mus:
                             //npc go to script
                             kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                            Light.SetActive(false);
                             Pointed_target = GameObject.Find("Target_Mus_Res");
                             transform.LookAt(Pointed_target.transform);
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
@@ -190,6 +196,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 {
                                     Speed = 0f;
                                     kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                                    Light.SetActive(true);
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
                                     if (end_dialogue == true)
@@ -214,6 +221,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                     //Debug.Log("in LAB");
                     //check for substate
                     kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                    Light.SetActive(false);
                     TextToHub.SetBool("Return_Text", false);
 
                     switch (current_substate)
@@ -236,6 +244,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 {
                                     Speed = 0f;
                                     kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                                    Light.SetActive(true);
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
                                     if (end_dialogue == true)
@@ -250,6 +259,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         case SubState_type.Switch_lab: //goes to switch table and waits in idle for end_dialogue
                             Pointed_target = GameObject.Find("Target_Lab_Switch");
                             kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                            Light.SetActive(false);
                             transform.LookAt(Pointed_target.transform);
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                             {
@@ -266,6 +276,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 {
                                     Speed = 0f;
                                     kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                                    Light.SetActive(true);
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
                                     if (end_dialogue == true)
@@ -280,6 +291,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         case SubState_type.Lamp_lab:
                             Pointed_target = GameObject.Find("Target_Lab_Lamp");
                             kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                            Light.SetActive(false);
                             transform.LookAt(Pointed_target.transform);
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                             {
@@ -296,6 +308,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 {
                                     Speed = 0f;
                                     kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                                    Light.SetActive(true);
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
                                     if (end_dialogue == true)
@@ -321,6 +334,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         case SubState_type.Start_puz:
                             Debug.Log("puzzle start");
                             kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                            Light.SetActive(false);
                             //npc go to script
                             Pointed_target = GameObject.Find("Target_Puzzle_Start");
                             transform.LookAt(Pointed_target.transform);
@@ -340,6 +354,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 {
                                     Speed = 0f;
                                     kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                                    Light.SetActive(true);
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
                                     if (end_dialogue == true)
@@ -354,6 +369,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         case SubState_type.Help_puz:
                             Pointed_target = GameObject.Find("Target_Puzzle_Help");
                             kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                            Light.SetActive(false);
                             transform.LookAt(Pointed_target.transform);
                             AllowedDistance = 0.2f;
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
@@ -371,6 +387,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 {
                                     Speed = 0f;
                                     kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                                    Light.SetActive(true);
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
                                     if (PuzzleChecker.solved == true)
@@ -385,6 +402,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                         case SubState_type.Solved_puz:
                             Pointed_target = GameObject.Find("Target_Puzzle_Solved");
                             kirchbot_bulb.material.DisableKeyword("_EMISSION");
+                            Light.SetActive(false);
                             transform.LookAt(Pointed_target.transform);
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                             {
@@ -401,6 +419,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                 {
                                     Speed = 0f;
                                     kirchbot_bulb.material.EnableKeyword("_EMISSION");
+                                    Light.SetActive(true);
                                     transform.LookAt(ThePlayer.transform);
                                     NPCAnimator.SetBool("Idle", true);
                                     if (end_dialogue == true)

@@ -12,6 +12,9 @@ public class PhysicsGrabbable : Grabbable
     private GameObject _gameobject;
     Grabbable grabbed_object;
     public GameObject _fpsCamera;
+    public GameObject Body;
+    public GameObject Hub_Empty, Mus_Empty1, Mus_Empty2, Lab_Empty1, Lab_Empty2, Lab_Empty3, Circuit_Empty1, Circuit_Empty2, Circuit_Empty3;
+
 
 
     protected override void Start()
@@ -20,6 +23,7 @@ public class PhysicsGrabbable : Grabbable
         _collider = GetComponent<Collider>();
         _rigidbody = GetComponent<Rigidbody>();
        _gameobject = GetComponent<GameObject>();
+       
 
     }
 
@@ -37,7 +41,26 @@ public class PhysicsGrabbable : Grabbable
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         //_rigidbody.isKinematic = true; //permette movimento libero
         _rigidbody.useGravity = false;
-        
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Hub_Empty.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Mus_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Mus_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Lab_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Lab_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Lab_Empty3.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Circuit_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Circuit_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(Body.GetComponent<Collider>(), Circuit_Empty3.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Hub_Empty.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Mus_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Mus_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Lab_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Lab_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Lab_Empty3.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Circuit_Empty1.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Circuit_Empty2.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), Circuit_Empty3.GetComponent<Collider>(), true);
+
+
 
     }
 

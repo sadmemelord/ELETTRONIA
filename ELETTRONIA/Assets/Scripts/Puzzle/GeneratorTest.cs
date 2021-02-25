@@ -6,6 +6,7 @@ public class GeneratorTest : Interactable
 {
     public Renderer _renderer;
     public bool Power_Tester;
+    public AudioSource PowerON;
 
     public override void Interact(GameObject caller)
     {
@@ -19,6 +20,7 @@ public class GeneratorTest : Interactable
         else
         {
             _renderer.material.EnableKeyword("_EMISSION");
+            PowerON.Play();
         }
 
 

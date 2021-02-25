@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Painting_Franklin : MonoBehaviour
+public class Painting_Franklin : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Dialogue dialogue_painting_Franklin;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact(GameObject caller)
     {
-        
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue_painting_Franklin);
     }
 }
