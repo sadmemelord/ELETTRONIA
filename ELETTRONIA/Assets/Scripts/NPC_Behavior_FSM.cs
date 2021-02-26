@@ -8,6 +8,8 @@ public class NPC_Behavior_FSM : MonoBehaviour
     //variables and objs
     public Animator TextToHub;
     public ParticleSystem Teleport_Museum;
+    public ParticleSystem Teleport_Lab;
+    public ParticleSystem Teleport_Puzzle;
     public GameObject ThePlayer;
     public GameObject Pointed_target;
     public Animator NPCAnimator;
@@ -20,6 +22,11 @@ public class NPC_Behavior_FSM : MonoBehaviour
     public static bool end_dialogue;
     private GameObject Target_Hub;
     public Renderer kirchbot_bulb;
+    public AudioSource Teleport_SFX;
+
+    public static bool Unlock_Lab;
+    public static bool Unlock_Puzzle;
+  
 
     GameObject pointed_object;
     RaycastHit hit;
@@ -66,6 +73,8 @@ public class NPC_Behavior_FSM : MonoBehaviour
         Target_Hub = GameObject.Find("Target_Hub");
         _range = 100;
         end_dialogue = false;
+        Unlock_Lab = false;
+        Unlock_Puzzle = false;
     }
 
     // Update is called once per frame
@@ -205,7 +214,9 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                         //needs to teleport to LAB or to HUB
 
                                         Teleport_Museum.Play();
+                                        Teleport_SFX.Play();
                                         TextToHub.SetBool("Return_Text", true);
+                                        Unlock_Lab = true;
                                         gameObject.transform.position = Target_Hub.transform.position;
                                         end_dialogue = false;
                                     }
@@ -316,7 +327,12 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                         current_substate = SubState_type.Start_puz;
                                         end_dialogue = false;
                                         TextToHub.SetBool("Return_Text", true);
+                                        //teleport
+                                        Teleport_Lab.Play();
+                                        Teleport_SFX.Play();
+                                        Unlock_Puzzle = true;
                                         gameObject.transform.position = Target_Hub.transform.position;
+                                        
                                     }
                                 }
                             }
@@ -338,14 +354,14 @@ public class NPC_Behavior_FSM : MonoBehaviour
                             //npc go to script
                             Pointed_target = GameObject.Find("Target_Puzzle_Start");
                             transform.LookAt(Pointed_target.transform);
-                            AllowedDistance = 0.2f;
+                            AllowedDistance = 0.1f;
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                             {
                                 TargetDistance = Shot.distance;
                                 if (TargetDistance >= AllowedDistance)
                                 {
                                     NPCAnimator.SetBool("Idle", false);
-                                    Speed = 0.07f;
+                                    Speed = 0.1f;
 
                                     //animation  for follow
                                     transform.position = Vector3.MoveTowards(transform.position, Pointed_target.transform.position, Speed);
@@ -359,6 +375,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                     NPCAnimator.SetBool("Idle", true);
                                     if (end_dialogue == true)
                                     {
+                                        Pointed_target.SetActive(false);
                                         current_substate = SubState_type.Help_puz;
                                         end_dialogue = false;
                                     }
@@ -371,7 +388,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                             kirchbot_bulb.material.DisableKeyword("_EMISSION");
                             Light.SetActive(false);
                             transform.LookAt(Pointed_target.transform);
-                            AllowedDistance = 0.2f;
+                            AllowedDistance = 0.1f;
                             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                             {
                                 TargetDistance = Shot.distance;
@@ -392,6 +409,7 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                     NPCAnimator.SetBool("Idle", true);
                                     if (PuzzleChecker.solved == true)
                                     {
+                                        Pointed_target.SetActive(false);
                                         current_substate = SubState_type.Solved_puz;
                                         end_dialogue = false;
                                     }
@@ -427,7 +445,11 @@ public class NPC_Behavior_FSM : MonoBehaviour
                                         current_substate = SubState_type.Current_mus;
                                         end_dialogue = false;
                                         TextToHub.SetBool("Return_Text", true);
+                                        //teleport
+                                        Teleport_Puzzle.Play();
+                                        Teleport_SFX.Play();
                                         gameObject.transform.position = Target_Hub.transform.position;
+
                                     }
                                 }
                             }

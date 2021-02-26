@@ -102,7 +102,10 @@
     <Compile Include="Assets\Scripts\Lab\Lab_Switch_3.cs" />
     <Compile Include="Assets\Scripts\NPC_Behavior_FSM.cs" />
     <Compile Include="Assets\Scripts\NpcFollow.cs" />
-    <Compile Include="Assets\Scripts\Opener.cs" />
+    <Compile Include="Assets\Scripts\Openers\Lab_Opener.cs" />
+    <Compile Include="Assets\Scripts\Openers\Museum_Opener.cs" />
+    <Compile Include="Assets\Scripts\Openers\Opener.cs" />
+    <Compile Include="Assets\Scripts\Openers\Puzzle_Opener.cs" />
     <Compile Include="Assets\Scripts\PhysicsGrabbable.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Circuit_Lighter.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Generator.cs" />
